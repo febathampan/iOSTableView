@@ -59,11 +59,22 @@ class MyTableViewTableViewController: UITableViewController{
     }
 
     
-    /*override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as! MyCellTableViewCell
-        cell.carsName.text = self.cars[indexPath.row]
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+        let toDo = toDos[indexPath.row]
+        cell.textLabel?.text = toDo.text
+        if toDo.complete {
+            cell.accessoryType = .checkmark
+            cell.textLabel?.alpha = 0.5
+        }
+        else {
+            cell.accessoryType = .none
+            cell.textLabel?.alpha = 1.0
+        }
+        
+//cell.t.text = self.toDos[indexPath.row]
         return cell
-    }*/
+    }
     
 
     /*
