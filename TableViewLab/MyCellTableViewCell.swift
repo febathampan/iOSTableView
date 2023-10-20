@@ -8,7 +8,8 @@
 import UIKit
 
 class MyCellTableViewCell: UITableViewCell {
-
+    
+    
     @IBOutlet weak var carsName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,9 +7,10 @@
 
 import UIKit
 
-class MyTableViewTableViewController: UITableViewController {
-    
+class MyTableViewTableViewController: UITableViewController{
+     
     var cars: [String] = ["BMW", "Ford", "GMC", "Honda", "Jeep", "Volvo"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
