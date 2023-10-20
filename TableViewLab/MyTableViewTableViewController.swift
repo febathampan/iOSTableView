@@ -57,15 +57,17 @@ class MyTableViewTableViewController: UITableViewController{
         //return cars.count
         return toDos.count
     }
-
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
         let toDo = toDos[indexPath.row]
         cell.textLabel?.text = toDo.text
         if toDo.complete {
-            cell.accessoryType = .checkmark
-            cell.textLabel?.alpha = 0.5
+           cell.accessoryType = .checkmark
+            cell.textLabel?.alpha = 0.6
         }
         else {
             cell.accessoryType = .none
@@ -74,7 +76,25 @@ class MyTableViewTableViewController: UITableViewController{
         
         return cell
     }
-    
+    /**override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+     if editingStyle == .Delete {
+         let alert = UIAlertController(title: "Delete Note", message: "Are you sure you want to delete this note?", preferredStyle: .ActionSheet)
+
+         alert.addAction(UIAlertAction(title: "Yes", style: .Destructive, handler: {
+             (alert:UIAlertAction!) in
+             //****//
+              your code to delete item from parse.
+             // ***///*
+    //And then remove object from tableview
+   // self.noteObjects.removeAtIndex(indexPath.row)
+           //   self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        // }))
+        // alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: nil))
+
+         //self.presentViewController(alert, animated: true, completion: nil)
+   //  }
+ //}
+//*/
 
     /*
     // Override to support conditional editing of the table view.
@@ -89,8 +109,12 @@ class MyTableViewTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+
             toDos.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
+            
+                    //   self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         } /*else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         } */
