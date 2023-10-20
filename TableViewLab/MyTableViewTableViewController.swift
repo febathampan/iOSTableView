@@ -72,7 +72,6 @@ class MyTableViewTableViewController: UITableViewController{
             cell.textLabel?.alpha = 1.0
         }
         
-//cell.t.text = self.toDos[indexPath.row]
         return cell
     }
     
@@ -85,18 +84,22 @@ class MyTableViewTableViewController: UITableViewController{
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            toDos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+        } /*else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        } */
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        toDos[indexPath.row].complete.toggle()
+        tableView.reloadData()
+    }
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
