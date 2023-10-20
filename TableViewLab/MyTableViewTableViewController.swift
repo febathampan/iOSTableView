@@ -6,10 +6,37 @@
 //
 
 import UIKit
-
+struct toDo{
+    let text: String
+    var complete: Bool
+}
 class MyTableViewTableViewController: UITableViewController{
-     
-    var cars: [String] = ["BMW", "Ford", "GMC", "Honda", "Jeep", "Volvo"]
+    var toDos = [toDo]()
+
+    @IBAction func addToDo(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Item", message: "Add Item", preferredStyle: .alert)
+        
+        alert.addTextField { (textField)in
+            textField.placeholder = "Write an item"
+            
+        }
+        
+        
+        
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default,handler: { (_) in
+            guard let toDotext = alert.textFields?.first?.text   else{
+                return}
+            self.toDos.append(toDo(text: toDotext,complete: false))
+            self.tableView.reloadData()
+            
+        }))
+        present(alert,animated:  true)
+
+        
+    }
+    
     
 
     override func viewDidLoad() {
@@ -28,15 +55,15 @@ class MyTableViewTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //return cars.count
-        return 5
+        return toDos.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    /*override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as! MyCellTableViewCell
         cell.carsName.text = self.cars[indexPath.row]
         return cell
-    }
+    }*/
     
 
     /*

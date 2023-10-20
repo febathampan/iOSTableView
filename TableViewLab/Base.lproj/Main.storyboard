@@ -41,7 +41,7 @@
             <objects>
                 <viewController id="Lex-FJ-iuI" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vun-CD-KvD">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdI-ri-zBM">
@@ -69,9 +69,6 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="Cancel">
                                                     <color key="baseBackgroundColor" systemColor="linkColor"/>
                                                 </buttonConfiguration>
-                                                <connections>
-                                                    <segue destination="8Ri-c8-l9Y" kind="show" id="ks5-i5-xOf"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMx-2a-bgN">
                                                 <rect key="frame" x="204.66666666666669" y="0.0" width="76.333333333333314" height="34.333333333333336"/>
@@ -79,9 +76,6 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="OK">
                                                     <color key="baseBackgroundColor" systemColor="linkColor"/>
                                                 </buttonConfiguration>
-                                                <connections>
-                                                    <segue destination="8Ri-c8-l9Y" kind="show" id="mEc-ji-XM4"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -129,7 +123,7 @@
             <objects>
                 <tableViewController id="8Ri-c8-l9Y" customClass="MyTableViewTableViewController" customModule="TableViewLab" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Gfs-05-ggO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="oC2-va-IU3">
@@ -151,7 +145,7 @@
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="+"/>
                                     <connections>
-                                        <segue destination="Lex-FJ-iuI" kind="show" id="FUp-7P-RH3"/>
+                                        <action selector="addToDo:" destination="8Ri-c8-l9Y" eventType="touchDown" id="Ild-tC-o7N"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -190,9 +184,6 @@
             <point key="canvasLocation" x="305" y="-759"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="mEc-ji-XM4"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
